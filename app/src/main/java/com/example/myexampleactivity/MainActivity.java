@@ -131,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
         }else if (s2.isEmpty()||s2.equals("")){
             Toast.makeText(this,"Please provide your email",Toast.LENGTH_LONG).show();
         }
-        else if (s3.isEmpty()||s3.equals("")){
-            Toast.makeText(this,"Please provide your phone",Toast.LENGTH_LONG).show();
+        else if (s3.isEmpty()||s3.equals("")||s3.length()<10){
+            Toast.makeText(this,"Phone number missing or its length is less than 10 ",Toast.LENGTH_LONG).show();
         }else if(!s2.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")){
             Toast.makeText(this,"Invalid email format",Toast.LENGTH_LONG).show();
 
