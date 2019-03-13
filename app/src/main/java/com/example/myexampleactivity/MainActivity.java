@@ -133,7 +133,10 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (s3.isEmpty()||s3.equals("")){
             Toast.makeText(this,"Please provide your phone",Toast.LENGTH_LONG).show();
-        }else {
+        }else if(!s2.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")){
+            Toast.makeText(this,"Invalid email format",Toast.LENGTH_LONG).show();
+
+        }else{
 
             Drawable drawable = imageView1.getDrawable();
             Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
