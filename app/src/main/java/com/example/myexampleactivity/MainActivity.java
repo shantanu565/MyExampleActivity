@@ -128,28 +128,28 @@ public class MainActivity extends AppCompatActivity {
 
         if (s1.isEmpty()||s1.equals("")){
             Toast.makeText(this,"Please provide your username",Toast.LENGTH_LONG).show();
-        }
-        if (s2.isEmpty()||s2.equals("")){
+        }else if (s2.isEmpty()||s2.equals("")){
             Toast.makeText(this,"Please provide your email",Toast.LENGTH_LONG).show();
         }
-        if (s3.isEmpty()||s3.equals("")){
+        else if (s3.isEmpty()||s3.equals("")){
             Toast.makeText(this,"Please provide your phone",Toast.LENGTH_LONG).show();
+        }else {
+
+            Drawable drawable = imageView1.getDrawable();
+            Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            byte[] b = baos.toByteArray();
+
+
+            Intent i = new Intent(MainActivity.this, ResultActivity.class);
+            i.putExtra("edt1", s1);
+            i.putExtra("edt2", s2);
+            i.putExtra("edt3", s3);
+            i.putExtra("img", b);
+            Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
+            startActivity(i);
         }
-
-        Drawable drawable=imageView1.getDrawable();
-        Bitmap bitmap= ((BitmapDrawable)drawable).getBitmap();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] b = baos.toByteArray();
-
-
-        Intent i = new Intent(MainActivity.this, ResultActivity.class);
-        i.putExtra("edt1",s1);
-        i.putExtra("edt2",s2);
-        i.putExtra("edt3",s3);
-        i.putExtra("img",b);
-        Toast.makeText(this,"hello",Toast.LENGTH_LONG).show();
-        startActivity(i);
 
     }
     @Override
